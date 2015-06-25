@@ -301,13 +301,6 @@ local function FixMovement(ucmd)
 	ucmd:SetSideMove(GetFix.y * -1 || GetFix.y)
 end
 
-local function AA(ucmd)
-if !vars["AA"] then return; end
-	local aang = Angle((ang.y + 90), 0);
-	ucmd:SetViewAngles(aang);
-	FixMovement(ucmd);
-end
-
 local function bhoop(ucmd)
 if !vars["BunnyHop"] then return; end
     if ( ucmd:KeyDown( 2 ) && !me:IsOnGround() && me:Alive() ) then	
@@ -337,8 +330,6 @@ local function aimboot(ucmd)
 		end
 	aiming = false;
 end
-
-local queue = 0;
 
 local function ESP( ent )
 if !vars["ESP"] then return; end
