@@ -294,13 +294,6 @@ local function GetNigs()
 	end
 end
 
-local function FixMovement(ucmd)
-	local GetFix = Vector(ucmd:GetForwardMove(), ucmd:GetSideMove(), 0)
-	GetFix = (GetFix:Angle() + ucmd:GetViewAngles() - fa):Forward() * GetFix:Length()
-	ucmd:SetForwardMove(GetFix.x)
-	ucmd:SetSideMove(GetFix.y * -1 || GetFix.y)
-end
-
 local function bhoop(ucmd)
 if !vars["BunnyHop"] then return; end
     if ( ucmd:KeyDown( 2 ) && !me:IsOnGround() && me:Alive() ) then	
@@ -324,8 +317,7 @@ local function aimboot(ucmd)
                 ucmd:SetViewAngles(pos);
 				if vars["Autoshoot"] && CanFire() then	
 					ucmd:SetButtons(bit.bor(ucmd:GetButtons(), 1));
-				end	
-				FixMovement(ucmd);
+				end
 			return;				
 		end
 	aiming = false;
@@ -599,7 +591,6 @@ local function hookMove()
 end	
 
 local function hookCreateMove(ucmd)
-	AA(ucmd);
 	bhoop(ucmd);
 	aimboot(ucmd);
 end
