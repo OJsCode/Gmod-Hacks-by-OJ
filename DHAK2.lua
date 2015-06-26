@@ -190,20 +190,19 @@ local DHAK = DHAK or {};
 
 local vars = {};
 
-vars["Aimbot"] = false
-vars["NoSpread"] = false
-vars["Autoshoot"] = false
-vars["IgnoreTeam"] = false
-vars["IgnoreFriends"] = false
-vars["FOV"] = 180
-vars["bhop"] = false
-vars["ESP"] = false
-vars["AntiAim"] = false
-vars["ThirdPerson"] = false
-vars["AA"] = false
-vars["Crosshair"] = false
-vars["FakeLag"] = false
-vars["silent"] = true
+vars["Aimbot"] = false;
+vars["NoSpread"] = false;
+vars["Autoshoot"] = false;
+vars["IgnoreTeam"] = false;
+vars["IgnoreFriends"] = false;
+vars["FOV"] = 180;
+vars["bhop"] = false;
+vars["ESP"] = false;
+vars["AntiAim"] = false;
+vars["ThirdPerson"] = false;
+vars["Crosshair"] = false;
+vars["FakeLag"] = false;
+vars["silent"] = true;
 
 local ang;
 
@@ -528,16 +527,6 @@ function ShowMenu()
 	miscBhop:SizeToContents()
 	miscBhop.OnChange = function(self)
 		vars["BunnyHop"] = tobool(self:GetChecked())
-	end
-
-	local miscAntiAim = vgui.Create("DCheckBoxLabel", MiscSheet)
-	miscAntiAim:SetPos( 95, 35 + 17 + 17  )
-	miscAntiAim:SetValue(vars["AA"])
-	miscAntiAim:SetText("AA")
-	miscAntiAim:SetDark(1)
-	miscAntiAim:SizeToContents()
-	miscAntiAim.OnChange = function(self)
-		vars["AA"] = tobool(self:GetChecked())
 	end
 	
 	local miscAntiAim = vgui.Create("DCheckBoxLabel", MiscSheet)
