@@ -301,10 +301,6 @@ if !vars["BunnyHop"] then return; end
 end	
 
 local function aimboot(ucmd)
-	exc = exc + Angle(ucmd:GetMouseY() * .023, ucmd:GetMouseX() * -.023, 0);
-	exc.p = math.Clamp(exc.p, -89, 89);
-	exc.x = math.NormalizeAngle(exc.x);
-	exc.y = math.NormalizeAngle(exc.y);
     GetNigs();
         if (input.IsKeyDown(KEY_F) && aimtarget ) then
 		aiming = true;
@@ -314,12 +310,10 @@ local function aimboot(ucmd)
 				pos.x = math.NormalizeAngle(pos.x);
 				pos.y = math.NormalizeAngle(pos.y)
                 ucmd:SetViewAngles(pos);
-				if vars["Autoshoot"] && CanFire() then	
-					ucmd:SetButtons(bit.bor(ucmd:GetButtons(), 1));
-				end
-			return;				
-		end
-	aiming = false;
+			if vars["Autoshoot"] && CanFire() then	
+				ucmd:SetButtons(bit.bor(ucmd:GetButtons(), 1));
+			end
+	end
 end
 
 local function ESP( ent )
