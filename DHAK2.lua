@@ -373,20 +373,6 @@ local function ESPhook()
 	DrawCrosshair();
 end
 
-local function ShouldDrawLocalPlayer()
-	return(vars["thirdperson"]);
-end
-
-local function calcview(ply, pos, angle, fov)
-
-	local view = {
-		angles = exc,
-		origin = vars["thirdperson"] and pos - exc:Forward() * 100 or pos;
-	};
-
-	return view;
-end
-
 local menuopen = false
 local insert2 = false
 function ShowMenu()
@@ -619,4 +605,3 @@ Add('CreateMove', hookCreateMove);
 Add('HUDPaint', hookHUDPaint);
 Add('Think', hookThink);
 Add('ShouldDrawLocalPlayer', ShouldDrawLocalPlayer);
-Add('CalcView', calcview);
